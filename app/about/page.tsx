@@ -4,138 +4,186 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The purpose, posture, and structure of the Brain Repair Foundation, plus answers to common questions.",
+    "The Brain Repair Foundation builds AI-enabled translational research infrastructure for children with acquired developmental regression, starting with Levi.",
 };
+
+const repairLetters = [
+  {
+    letter: "R",
+    word: "Restoring",
+    desc: "The lost is not gone. We are working to bring it back.",
+  },
+  {
+    letter: "E",
+    word: "Expression",
+    desc: "Communication, language, intent, gesture, and the ability to be understood.",
+  },
+  {
+    letter: "P",
+    word: "Plasticity",
+    desc: "The brain's capacity to change, relearn, adapt, and recover after disruption.",
+  },
+  {
+    letter: "A",
+    word: "Attention",
+    desc: "The ability to orient, engage, learn, and stay connected to the world.",
+  },
+  {
+    letter: "I",
+    word: "Intelligence",
+    desc: "Not a test score. The recovery of thinking, learning, memory, problem-solving, and developmental potential.",
+  },
+  {
+    letter: "R",
+    word: "Regulation",
+    desc: "Sleep, mood, behavior, sensory processing, arousal, and the body's ability to return to balance.",
+  },
+];
+
+const beliefs = [
+  "Regression is not an endpoint.",
+  "Suppressing harmful brain activity is only the first step.",
+  "Recovery should be measured longitudinally, not guessed from occasional appointments.",
+  "Families with dense data can accelerate science.",
+  "AI can help organize evidence and generate hypotheses, but expert review and biological validation are essential.",
+  "The first case can build infrastructure for many.",
+  "Children with severe regression deserve urgency.",
+];
 
 export default function AboutPage() {
   return (
-    <div className="page">
-      <article className="page-narrow">
-        <p className="page-eyebrow">About</p>
-        <h1>About the Brain Repair Foundation</h1>
+    <>
+      <section className="hero">
+        <div className="hero-inner">
+          <div>
+            <p className="hero-eyebrow">About</p>
+            <h1>The Brain Repair Foundation was created because Levi could not wait.</h1>
+            <p className="hero-sub">
+              Levi&rsquo;s regression, DEE-SWAS diagnosis, and treatment response revealed a
+              broader problem: complex pediatric regression requires faster integration of data,
+              literature, expert judgment, and targeted research than the current system usually
+              provides.
+            </p>
+            <p className="hero-sub">We are building that infrastructure.</p>
+          </div>
+        </div>
+      </section>
 
-        <h2>Purpose and posture</h2>
-        <p>
-          The Brain Repair Foundation has three goals for Levi Heller, in sequence: stop the
-          seizures he is currently experiencing, identify the root cause of his brain injury, and
-          restore the expression, plasticity, attention, intelligence, and regulation that the
-          injury has affected.
-        </p>
-        <p>
-          The first two goals are acute and finite. The third &mdash; restoring function &mdash;
-          is the durable mission of this organization. We are currently in the acute phase, and
-          the bulk of our day-to-day work is on goals one and two. The Foundation exists to
-          ensure that the work on goal three &mdash; which is longer, harder, and less
-          well-defined &mdash; happens with the same rigor as the acute work, and continues past
-          the acute phase regardless of how it resolves.
-        </p>
-        <p>
-          Our optimization target is Levi. Every decision about what to research, what to try,
-          and who to engage is filtered through whether it helps him. We do not pretend to be a
-          general-purpose research organization, and we do not pretend to optimize for goals
-          beyond Levi&rsquo;s recovery.
-        </p>
-        <p>
-          Our publishing posture is generous. The marginal cost of sharing what we learn is low
-          and the potential value to other families is high. If our work eventually helps other
-          children with rare pediatric brain injuries, that is a welcome second-order outcome,
-          not the mission.
-        </p>
+      <section className="section">
+        <div className="container">
+          <p className="eyebrow">Our mission</p>
+          <h2>Accelerate precision recovery for children with acquired developmental regression.</h2>
+          <p>
+            We start with Levi because his case is urgent, deeply measured, and scientifically
+            important. We are building systems, tools, and collaborations that can eventually
+            help other children facing similar regression.
+          </p>
+        </div>
+      </section>
 
-        <h2>What the Foundation is</h2>
-        <ul>
-          <li>
-            A focused research organization conducting integrative case synthesis on a single
-            case.
-          </li>
-          <li>
-            The home of the Levi AI Research Lab, a working software system that operationalizes
-            our methodology.
-          </li>
-          <li>A platform for honest publishing of methodology, synthesis, and negative results.</li>
-          <li>
-            A vehicle for engaging clinicians, researchers, and other families in serious work on
-            a serious case.
-          </li>
-        </ul>
+      <section className="section section-alt">
+        <div className="container-wide">
+          <p className="eyebrow">REPAIR</p>
+          <h2>Restoring Expression, Plasticity, Attention, Intelligence, and Regulation.</h2>
+          <p className="lede" style={{ maxWidth: "65ch" }}>
+            REPAIR is the working acronym for the functions we are trying to rebuild.
+          </p>
+          <div className="repair-block">
+            {repairLetters.map((item, i) => (
+              <div key={i} className="repair-letter">
+                <span className="letter">{item.letter}</span>
+                <span className="word">{item.word}</span>
+                <span className="desc">{item.desc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        <h2>What the Foundation is not</h2>
-        <ul>
-          <li>
-            A medical-advice resource. Nothing on this site is medical advice. Decisions about
-            your child&rsquo;s care should be made with your clinical team.
-          </li>
-          <li>A general patient-advocacy organization for pediatric brain injury or epilepsy.</li>
-          <li>
-            A clinical service. We do not see patients, render diagnoses, or recommend treatments
-            outside Levi&rsquo;s case.
-          </li>
-          <li>A fundraising vehicle at this time.</li>
-        </ul>
+      <section className="section">
+        <div className="container">
+          <p className="eyebrow">What we believe</p>
+          <h2>Working principles.</h2>
+          <ul className="list-clean">
+            {beliefs.map((b) => (
+              <li key={b}>{b}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-        <h2>Privacy and publishing posture</h2>
-        <ul>
-          <li>
-            <strong>Published openly:</strong> the methodology, synthesis memos, the ranked
-            differential of root-cause theories, the diagnostics workspace, the treatments
-            workspace, our running questions, and our negative results.
-          </li>
-          <li>
-            <strong>Behind request-access:</strong> the extracted clinical records, raw artifacts
-            (PDFs of labs and imaging), and identifying details about the clinical team. The Levi
-            AI Research Lab is gated; we grant access on request to clinicians, researchers, and
-            families with similar cases.
-          </li>
-          <li>
-            <strong>Not published:</strong> information that identifies clinicians or institutions
-            in ways they have not consented to, and personal medical details about Levi beyond
-            what is needed to make the work useful.
-          </li>
-        </ul>
+      <section className="section section-alt">
+        <div className="container-wide">
+          <p className="eyebrow">Founders</p>
+          <h2>Who is behind this.</h2>
+          <div className="grid-2">
+            <div className="card">
+              <h3>Founder</h3>
+              <p className="muted">
+                <span className="placeholder">[Founder name]</span>
+              </p>
+              <p>
+                <span className="placeholder">
+                  [Short bio: relationship to Levi, relevant background, role in the foundation.]
+                </span>
+              </p>
+            </div>
+            <div className="card">
+              <h3>Founder</h3>
+              <p className="muted">
+                <span className="placeholder">[Founder name]</span>
+              </p>
+              <p>
+                <span className="placeholder">
+                  [Short bio: relationship to Levi, relevant background, role in the foundation.]
+                </span>
+              </p>
+            </div>
+          </div>
+          <p className="muted" style={{ marginTop: "1.5rem", fontSize: "0.92rem" }}>
+            Founder bios and headshots will be added shortly.
+          </p>
+        </div>
+      </section>
 
-        <h2>FAQ</h2>
+      <section className="section">
+        <div className="container">
+          <p className="eyebrow">Advisors and collaborators</p>
+          <h2>Coming soon.</h2>
+          <p>
+            We are forming a Scientific Advisory Board, a Levi Rapid Review Board, and a wider
+            network of research and technology collaborators. Names will be added with explicit
+            permission.
+          </p>
+          <p className="muted" style={{ fontSize: "0.92rem" }}>
+            Possible categories: Scientific Advisory Board · Levi Rapid Review Board · Research
+            collaborators · Technology collaborators · Funding partners.
+          </p>
+        </div>
+      </section>
 
-        <p className="faq-question">
-          Why is this organization for Levi specifically and not for other children?
-        </p>
-        <p className="faq-answer">
-          Because we are honest about what we are doing. We started this work for Levi and our
-          optimization target is Levi. Conducting this work under the pretense that we are
-          equally focused on every affected child would be misleading. We publish what we learn
-          so that other families can benefit, but the work is being done because it matters for
-          our son.
-        </p>
-
-        <p className="faq-question">Will the methodology generalize to other cases?</p>
-        <p className="faq-answer">
-          We believe so, but we are not the right people to claim that. The methodology is
-          published; researchers and clinicians can evaluate it on its own merits.
-        </p>
-
-        <p className="faq-question">Can I get access to the Levi AI Research Lab?</p>
-        <p className="faq-answer">
-          If you are a clinician, researcher, or family with a similar case &mdash; yes, on
-          request.{" "}
-          <Link href="/lab/request-access">Submit a request here.</Link>
-        </p>
-
-        <p className="faq-question">How can I support the work?</p>
-        <p className="faq-answer">
-          The most useful forms of support right now are introductions to clinicians, researchers,
-          and families with relevant expertise or cases. See <Link href="/contact">Get
-          Involved</Link>. Financial-support paths will be added once the appropriate legal
-          structure is in place.
-        </p>
-
-        <p className="faq-question">
-          Are you affiliated with any university, hospital, or company?
-        </p>
-        <p className="faq-answer">
-          No. The Brain Repair Foundation is independent. We collaborate with researchers and
-          clinicians at multiple institutions but the Foundation itself has no institutional
-          affiliation.
-        </p>
-      </article>
-    </div>
+      <section className="section">
+        <div className="container">
+          <div className="cta-bar">
+            <div className="cta-bar-text">
+              <p className="eyebrow">Get involved</p>
+              <h3>Help us move faster.</h3>
+              <p>
+                If you have relevant expertise — clinical, scientific, technical, or
+                philanthropic — we want to hear from you.
+              </p>
+            </div>
+            <div className="cta-bar-actions">
+              <Link href="/collaborate" className="btn btn-on-deep">
+                Collaborate
+              </Link>
+              <Link href="/contact" className="btn btn-on-deep-secondary">
+                Contact
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
