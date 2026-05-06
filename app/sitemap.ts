@@ -5,14 +5,18 @@ const siteUrl =
 
 const routes = [
   "",
-  "/approach",
-  "/work",
-  "/research",
-  "/people",
   "/levi",
+  "/laurel",
+  "/research",
+  "/how-we-work",
+  "/collaborate",
+  "/fund",
+  "/updates",
+  "/rapid-review-board",
+  "/for-families",
+  "/outputs",
   "/about",
   "/contact",
-  "/lab/request-access",
   "/privacy",
 ];
 
@@ -21,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((path) => ({
     url: `${siteUrl}${path}`,
     lastModified,
-    changeFrequency: path === "" ? "monthly" : "monthly",
+    changeFrequency: "monthly",
     priority: path === "" ? 1 : 0.7,
   }));
 }
